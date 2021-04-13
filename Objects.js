@@ -66,3 +66,4 @@ console.log(multiplyNumeric(menu));
 
 // length of an  object
 console.log(Object.keys(menu).length);
+
