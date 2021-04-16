@@ -7,7 +7,7 @@ var arr = [
 //   var sortedArr = arr.sort((a,b) => Math.abs(a) - Math.abs(b));
 //   console.log(sortedArr);
 
-var arr1 = arr.slice(0, 2);
-arr1.push(999);
+var arr1 = arr.slice(2);
+// arr1.push(999);
 console.log(arr1);
 console.log(arr);
