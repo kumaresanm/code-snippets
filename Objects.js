@@ -3,9 +3,9 @@ let obj1 = {
 };
 let obj2 = new Object();
 let obj3 = Object.create({});
-let obj4 = Object.assign({ b: 'bbb' }, obj1);
-let obj5 = { ...obj4 };
-let obj6 = JSON.parse(JSON.stringify(obj5));
+let obj4 = Object.assign({ b: 'bbb' }, obj1); // shallow copy
+let obj5 = { ...obj4 }; // shallow copy
+let obj6 = JSON.parse(JSON.stringify(obj5)); // deep copy
 console.log(obj1);
 console.log(obj2);
 console.log(obj3);
