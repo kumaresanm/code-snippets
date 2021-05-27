@@ -54,3 +54,15 @@ function memoize(fn) {
 console.log(memoize(add)(3, 4));
 console.log(memoize(add)(3, 4));
 console.log(memoize(add)(3, 4));
+
+let hashmp = {};
+
+function mul(a, b) {
+  const key = JSON.stringify(arguments);
+  if (hashmp[key]) {
+    return hashmp[key];
+  } else {
+    return (hashmp[key] = a * b);
+  }
+}
+console.log(mul(3, 4));

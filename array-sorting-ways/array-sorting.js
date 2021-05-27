@@ -1,3 +1,5 @@
+
+
 // using setTimeout only ascending
 let arr = [10, 100, 500, 20, 35];
 

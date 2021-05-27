@@ -28,3 +28,10 @@ function flattenobj(obj){
 }
 
 console.log(flattenobj(obj1));
+
+// obj2 = obj1;
+// obj2 = Object.assign({},obj1);
+obj2 = {...obj1};
+obj2.firstName = "Kumar";
+console.log(obj2);
+console.log(obj1);
