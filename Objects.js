@@ -1,9 +1,16 @@
 let obj1 = {
-    a: 'aaaa'
+  a: "aaaa",
 };
+
+let obja = {
+  name: "kumar",
+  address: {
+    city: "mumbai"
+  }
+}
 let obj2 = new Object();
 let obj3 = Object.create({});
-let obj4 = Object.assign({ b: 'bbb' }, obj1); // shallow copy
+let obj4 = Object.assign({ b: "bbb" }, obj1); // shallow copy
 let obj5 = { ...obj4 }; // shallow copy
 let obj6 = JSON.parse(JSON.stringify(obj5)); // deep copy
 console.log(obj1);
@@ -23,47 +30,58 @@ delete user.name;
 // creation order.
 
 var exObj = {
-    "20": 'sdfdsf',
-    "1": 'qq',
-    name: 'ss',
-    "41": 'ccc',
-    19: 'dd'
-}
+  20: "sdfdsf",
+  1: "qq",
+  name: "ss",
+  41: "ccc",
+  19: "dd",
+};
 console.log(exObj);
 console.log("20" in exObj);
 console.log(20 in exObj);
 
 //sum object properties
 let salaries = {
-    John: 100,
-    Ann: 160,
-    Pete: 130
-}
+  John: 100,
+  Ann: 160,
+  Pete: 130,
+};
 let sum = 0;
 for (prop in salaries) {
-    if (salaries[prop]) {
-        sum += salaries[prop];
-    }
+  if (salaries[prop]) {
+    sum += salaries[prop];
+  }
 }
 console.log(sum);
 
 //Multiply numeric property values by 2
 let menu = {
-    width: 200,
-    height: 300,
-    title: "My menu"
+  width: 200,
+  height: 300,
+  title: "My menu",
 };
 
-function multiplyNumeric(menu){
-    for(key in menu){
-        if(typeof menu[key] === "number"){
-            menu[key] = menu[key] * 2;
-        }
+function multiplyNumeric(menu) {
+  for (key in menu) {
+    if (typeof menu[key] === "number") {
+      menu[key] = menu[key] * 2;
     }
-    return menu;
+  }
+  return menu;
 }
 console.log(multiplyNumeric(menu));
 
 // length of an  object
 console.log(Object.keys(menu).length);
 
+const person = {
+  isHuman: false,
+  printIntroduction: function () {
+    console.log(`My name is ${this.name}. Am I human? ${this.isHuman}`);
+  },
+};
+
+const me = Object.create(person);
+console.log(me);
+console.log(me.__proto__);
+console.log(person);

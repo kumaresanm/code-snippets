@@ -61,8 +61,22 @@ var obj = {
   },
 };
 
-//  console.log(obj.prop.getFullname());
+console.log(obj.prop.getFullname());
 // Aurelio
+
+// context using arrow function
+var fullname = "John Doe";
+var obj1 = {
+  fullname: "Colin Ihrig",
+  prop: {
+    fullname: "Aurelio De Rosa",
+    getFullname: () => {
+      return this.fullname;
+    },
+  },
+};
+
+console.log(obj1.prop.getFullname());
 
 var test = obj.prop.getFullname;
 
@@ -85,7 +99,7 @@ for (let i = 0; i < 4; i++) {
 let dog = {
   name: "doggo",
   sayName() {
-    //   console.log(this.name)
+       console.log(this.name)
   },
 };
 let sayName = dog.sayName();
@@ -209,9 +223,9 @@ const copy = { ...user };
 copy.info.father = "MD";
 
 console.log("original: ", user.info);
- // father: "MD"
+// father: "MD"
 console.log("copy:", copy.info);
- // father: "MD"
+// father: "MD"
 
 // output the value will changed in both since it is shallow copy using spread/assign operator.
 
@@ -246,8 +260,8 @@ var obj = {
   name: "shoaib",
   func: function () {
     var self = this;
-    console.log("outer function:  this.name = " + this.name); 
-    console.log("outer function:  self.name = " + self.name); 
+    console.log("outer function:  this.name = " + this.name);
+    console.log("outer function:  self.name = " + self.name);
     (function () {
       console.log("inner function:  this.name = " + this.name);
       console.log("inner function:  self.name = " + self.name);
@@ -308,59 +322,63 @@ console.log(
 
 // arr2 = [2,3,4,5]
 
-function list() {  
+function list() {
   console.log(arguments);
   return [].slice.call(arguments);
 }
 var leadingThirtysevenList = list.bind(null, 37);
 var list2 = leadingThirtysevenList();
-console.log(list2);
+// console.log(list2);
 
+//let variables
 function foo() {
-  console.log(i);
+  // console.log(i);
   let i = 42;
 }
-foo(); 
+foo();
 //output is uncaught exception, because let variables cannot be used before initialization
-class MegaArray extends Array{
-  constructor(contents){
-    this.contents = contents;
-  }
-}
-let mArr = new MegaArray(1, 2, 3);
+// class MegaArray extends Array {
+//   constructor(contents) {
+//     this.contents = contents;
+//   }
+// }
+// let mArr = new MegaArray(1, 2, 3);
 //output is uncaught reference error because super constructor must be used in derieved class before using this keyword
 
 let buffer = new ArrayBuffer(16);
 let int32View = new Int32Array(buffer);
 for (let i = 0; i < int32View.length; i++) {
-  console.log(int32View[i] = i * 2);
+  // console.log((int32View[i] = i * 2));
 }
 
-function foo() {
-  'use strict';
-  (function () {
-    var point = {x: 42, y: 27};
-    with (point) {
-      console.log('The coordinates are: x: ', x, 'y: ', y);
-    }
-  })();
-}
-foo();
+// function foo() {
+//   "use strict";
+//   (function () {
+//     var point = { x: 42, y: 27 };
+//     with (point) {
+//       console.log("The coordinates are: x: ", x, "y: ", y);
+//     }
+//   })();
+// }
+// foo();
 // output Uncaught SyntaxError: Strict mode code may not include a with statement
 
-this.greeting = "Hello, Universe!"
+// arrow functions
+this.greeting = "Hello, Universe!";
 let person = {
   greeting: "Hello, World!",
   greetUser: () => {
     console.log(this.greeting);
-  }
-}
+  },
+};
 person.greetUser();
 // output  Hello, Universe!
 
 let config = {
-  data: { "number": 99 },
-  getConfig: function() { return this.data; }
+  data: { number: 99 },
+  getConfig: function () {
+    return this.data;
+  },
 };
 let getConfig = config.getConfig;
 getConfig();
@@ -368,17 +386,17 @@ getConfig();
 //if bind getConfig.call(config) output {number: 99}
 
 function User() {
-  this[Symbol('id')] = 42;
-  this.favoriteColors = [ 'red', 'blue' ];
+  this[Symbol("id")] = 42;
+  this.favoriteColors = ["red", "blue"];
 }
 User.prototype = {
-  home: 'The Movie'
+  home: "The Movie",
 };
 let u = new User();
-u.username = 'User1';
-"User1"
-for(val in u){
- console.log(val)
+u.username = "User1";
+("User1");
+for (val in u) {
+  // console.log(val);
 }
 // symbol properties are not enumerable
 // output favoriteColors
@@ -405,13 +423,23 @@ for(val in u){
 //   console.log(val);
 // }
 
-function rectangle(a,b){
+function rectangle(a, b) {
   this.a = a;
   this.b = b;
-  this.area = function(){
+  this.area = function () {
     return this.a * this.b;
-  }
+  };
 }
 
-rect1 = new rectangle(10,20);
-console.log(rect1.area());
+rect1 = new rectangle(10, 20);
+// console.log(rect1.area());
+
+function f(input) {
+  let a = 100;
+  if (input) {
+    let b = a + 1;
+  }
+  return b;
+}
+
+console.log(f(true));
