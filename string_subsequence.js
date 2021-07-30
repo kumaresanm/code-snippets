@@ -1,25 +1,15 @@
-process.stdin.resume();
-process.stdin.setEncoding('ascii');
-
-var input_stdin = "";
-var input_stdin_array = "";
-var input_currentline = 0;
-
-process.stdin.on('data', function (data) {
-    input_stdin += data;
-
-});
-
-
-process.stdin.on('bigInt', function () {
-    input_stdin_array = input_stdin.split("\n");
-	
-	//Write code here
-    isSubsequence(input_stdin_array);
-    
-    process.stdout.write(""+output+"\n");
-});
-
-function isSubsequence(inpout){
-    console.log(inpout);
+let s = "abc",
+  t = "ahbgdc";
+function isSubsequence(s, t) {
+  let i = 0,
+    j = 0;
+  while (j < t.length && i < s.length) {
+    if (s[i] === t[j]) {
+      i++;
+    }
+    j++;
+  }
+  return i === s.length;
 }
+
+console.log(isSubsequence(s, t));

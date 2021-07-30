@@ -32,8 +32,8 @@ console.log(arrayList);
 // []
 // []
 
-var fruit = {name: 'apple'};
-var fruitbear = {name: 'apple'};
+var fruit = { name: "apple" };
+var fruitbear = { name: "apple" };
 
 console.log(fruit == fruitbear); // false
 console.log(fruit === fruitbear); // false
@@ -44,27 +44,27 @@ const obj = {
   getA: () => {
     console.log(this.a);
   },
-  getB(){
+  getB() {
     console.log(this.b);
-  }
+  },
 };
 
 obj.getA(); //undefined
 obj.getB(); // 2
 
-const myPromise = () => Promise.resolve('I have resolved!');
+const myPromise = () => Promise.resolve("I have resolved!");
 
 function firstFunction() {
-  myPromise().then(res => console.log(res));
-  console.log('second');
+  myPromise().then((res) => console.log(res));
+  console.log("second");
 }
 
 async function secondFunction() {
   setTimeout(() => {
-    console.log('timeout');
+    console.log("timeout");
   });
   console.log(await myPromise());
-  console.log('second');
+  console.log("second");
 }
 
 firstFunction();
@@ -75,15 +75,46 @@ secondFunction();
 // second
 // timeout
 
-
-var once = function(callback) {
-	return callback();
+var once = function (callback) {
+  return callback();
 };
 
 function bootstrapApp() {
-  console.log('this should be shown once');
+  console.log("this should be shown once");
   return 22;
 }
 
 var initialize = once(bootstrapApp);
-console.log(initialize());
+console.log(initialize);
+
+// get all substrings of a string
+function getSubStrs(str) {
+  let arr = [];
+  for (let i = 0; i < str.length; i++) {
+    for (let j = i + 1; j < str.length + 1; j++) {
+      arr.push(str.slice(i, j));
+    }
+  }
+  console.log(arr);
+}
+
+getSubStrs("aaabba");
+
+//bubble sort
+function bubbleSort(arr) {
+  let sorted = false;
+  while (!sorted) {
+    sorted = true;
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] > arr[i + 1]) {
+        sorted = false;
+        let temp = arr[i + 1];
+        arr[i + 1] = arr[i];
+        arr[i] = temp;
+      }
+    }
+  }
+  console.log(arr);
+}
+bubbleSort([2,-1,4,3,9,5])
+

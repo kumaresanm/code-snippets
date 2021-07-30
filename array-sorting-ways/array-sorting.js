@@ -1,16 +1,14 @@
-
-
 // using setTimeout only ascending
 let arr = [10, 100, 500, 20, 35];
 
-arr.forEach(item => {
+arr.forEach((item) => {
   setTimeout(() => console.log(item), item);
 });
 
 // using sort and comparator
-let arr1 = [35, 29,100, 40, 10, 60, 9];
-let sortArr = arr1.sort(function(a,b){
-    return a -b;
+let arr1 = [35, 29, 100, 40, 10, 60, 9];
+let sortArr = arr1.sort(function (a, b) {
+  return a - b;
 });
 console.log(sortArr);
 
@@ -18,7 +16,7 @@ console.log(sortArr);
 const listEl = document.getElementById("my-list");
 const arr2 = [10, 100, 500, 20, 35];
 
-arr2.forEach(n => {
+arr2.forEach((n) => {
   const itemEl = document.createElement("div");
 
   itemEl.className = "sorted-list-item";
@@ -28,4 +26,7 @@ arr2.forEach(n => {
   listEl.appendChild(itemEl);
 });
 // html
-{/* <div class="sorted-list" id="my-list"></div> */}
+{
+  /* <div class="sorted-list" id="my-list"></div> */
+}
+

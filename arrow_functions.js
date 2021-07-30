@@ -4,7 +4,7 @@ let obj1 = {
 
 let obj2 = {
     name: "sachin",
-    getInfo: (x,y) => {
+    getInfo: function(x,y) { // (x,y) =>
         console.log(this);
         console.log(this.name, x, y)
     }
@@ -31,25 +31,25 @@ const myFunction = () => {
 
   function timer(){
       this.seconds = 0;
-      setInterval(() => {
-          setTimeout(() => {
-              this.seconds++;
-          }, 1000);
-      }, 1000);
+    //   setInterval(() => {
+    //       setTimeout(() => {
+    //           this.seconds++;
+    //       }, 1000);
+    //   }, 1000);
   }
 
   let People = function(person, age) {
     this.person = person;
     this.age = age;
     this.info = function() {
-    setInterval(function() {
-console.log(this);
-        setTimeout(() => {
-            // here this!=People
-           console.log(this.person + " is " + this.age + 
-                                              " years old");
-          }, 3000);
-    }, 100);
+//     setInterval(function() {
+// console.log(this);
+//         setTimeout(() => {
+//             // here this!=People
+//            console.log(this.person + " is " + this.age + 
+//                                               " years old");
+//           }, 3000);
+//     }, 100);
     }
 } 
 let person1 = new People('John', 21);
