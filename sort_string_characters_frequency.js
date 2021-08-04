@@ -22,3 +22,22 @@ function countChars(str) {
 }
 
 countChars(str);
+
+
+var num = 111;
+var arr = num.toString().split('')
+var cnt = num.toString().length;  // 3
+console.log(arr);
+let result = 0;
+for(var i = cnt-1; i >= 0; i--) {
+    let c = i;
+    if(arr[c] == 0) {
+        result++;
+    }
+    while(c) {
+        result++;
+        c = c - 1;
+    }
+}
+
+console.log(result);

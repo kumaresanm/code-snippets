@@ -116,5 +116,18 @@ function bubbleSort(arr) {
   }
   console.log(arr);
 }
-bubbleSort([2,-1,4,3,9,5])
+bubbleSort([2, -1, 4, 3, 9, 5]);
 
+const promise1 = new Promise((resolve, reject) => {
+  // setTimeout(() => {
+    resolve("done");
+  // }, 1000);
+  reject("error");
+});
+
+promise1
+  .then((data, error) => {
+    console.log(data);
+    console.log(error);
+  })
+  .catch((error) => console.log("in error" + error));

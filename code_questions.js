@@ -1,6 +1,6 @@
 // iife
 (function () {
-  var a = (b = 5);
+  var a = b = 5;
 })();
 
 //  console.log(a);
@@ -90,7 +90,7 @@ function greet(person) {
     return "hey arnold";
   }
 }
-//   console.log(greet({ name: 'amy' }));
+  console.log(greet({ name: 'amy' }));
 
 for (let i = 0; i < 4; i++) {
   // setTimeout(() => console.log(i), 0);
@@ -112,7 +112,7 @@ Dog.bark = function () {
   console.log(this.name + " says woof");
 };
 let fido = new Dog("fido");
-//   Dog.bark()
+  Dog.bark();
 
 function isBig(thing) {
   if (thing == 0 || thing == 1 || thing == 2) {
